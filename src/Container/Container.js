@@ -1,5 +1,8 @@
+import myContext from "../contexts/myContext"
+
+
 export default function Container() {
     return <>
-        AAA
+                <myContext.Provider value={null} ></myContext.Provider>
     </>
 }
