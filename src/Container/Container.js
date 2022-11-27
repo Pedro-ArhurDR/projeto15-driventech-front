@@ -6,6 +6,7 @@ import { Route, Routes, BrowserRouter } from "react-router-dom";
 import styled from "styled-components";
 import { useState } from "react";
 import Shopping from "../Shopping/Shopping";
+import Checkout from "../Checkout/Checkout";
 export default function Container() {
   //State para mandar no post de login
   const [log, setLog] = useState({
@@ -22,7 +23,20 @@ export default function Container() {
     senha2: "",
   });
   //State para salvar os produtos no carrinho de compra
-  const [listShopping, setListShopping] = useState([]);
+  const [listShopping, setListShopping] = useState([
+    {
+      nome: "Placa de RTX 100000",
+      valor: 1000.0,
+      url_imagem:
+        "https://cdn.dooca.store/107/products/i4nzapixzcdjfv7y3x050ov6ojcffqjnlrls_640x640+fill_ffffff.png?v=1645474553&webp=0",
+    },
+    {
+      nome: "Placa cara",
+      valor: 890.0,
+      url_imagem:
+        "https://s2.glbimg.com/NaWdSD_-mHDjuaj1PbO2CXhXV8w=/0x0:695x521/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2017/Q/q/F5BBqCR4AtDbXjT2jtAQ/gigabyte-aorus-570.png",
+    },
+  ]);
 
   return (
     <>
@@ -36,6 +50,7 @@ export default function Container() {
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/shopping" element={<Shopping />} />
+              <Route path="/shopping" element={<Checkout />} />
             </Routes>
           </BrowserRouter>
         </Global>

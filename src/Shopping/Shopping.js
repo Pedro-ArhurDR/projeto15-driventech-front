@@ -6,12 +6,17 @@ import ListItens from "./ListItens";
 import TopShopping from "./TopShopping";
 export default function Shopping() {
   const { listShopping } = useContext(MyContext);
+  let total = 0;
+  for (let i = 0; i < listShopping.length; i++) {
+    total += listShopping[i].valor;
+  }
+  console.log(total);
   return (
     <Container>
       <TopShopping />
-      <ListItens listShopping={listShopping} />
+      <ListItens />
       <BottomShopping />
-      <Price>Total: R$ 1000.00</Price>
+      <Price>R$ {total.toFixed(2)}</Price>
     </Container>
   );
 }
