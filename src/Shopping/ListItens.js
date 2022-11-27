@@ -1,17 +1,21 @@
 import styled from "styled-components";
+import { useContext } from "react";
+import MyContext from "../contexts/myContext";
 export default function ListItens() {
+  const { listShopping } = useContext(MyContext);
   return (
     <Container>
-      <Item>
-        <img
-          src="https://cdn.dooca.store/107/products/i4nzapixzcdjfv7y3x050ov6ojcffqjnlrls_640x640+fill_ffffff.png?v=1645474553&webp=0"
-          alt="imagem item"
-        />
-        <div>
-          <span>Placa de vídeo</span>
-          <p>R$ 1000,00</p>
-        </div>
-      </Item>
+      {listShopping.map((product, index) => {
+        return (
+          <Item key={index}>
+            <img src={product.url_imagem} alt="imagem item" />
+            <div>
+              <span>{product.nome}</span>
+              <p>R$ {product.valor}</p>
+            </div>
+          </Item>
+        );
+      })}
     </Container>
   );
 }
