@@ -6,12 +6,7 @@ import { Route, Routes, BrowserRouter } from "react-router-dom";
 import styled from "styled-components";
 import { useState } from "react";
 import Shopping from "../Shopping/Shopping";
-<<<<<<< HEAD
-import Checkout from "../Checkout/Checkout"
-=======
 import Checkout from "../Checkout/Checkout";
-import ProductInfo from "../Product-Info/ProductInfo";
->>>>>>> 7a6e9f79da80a32980483a9cbee54b923cea8b21
 export default function Container() {
   //State para mandar no post de login
   const [log, setLog] = useState({
@@ -19,7 +14,7 @@ export default function Container() {
     senha: "",
     Bearer: "",
   });
-  console.log(log)
+  console.log(log);
   //State para mandar no post de signup (senha2 é pra ser igual senha)
   const [cad, setCad] = useState({
     nome: "",
@@ -28,7 +23,7 @@ export default function Container() {
     senha: "",
     senha2: "",
   });
-  const [session,setSession] = useState(false)
+  const [session, setSession] = useState(false);
   //State para salvar os produtos no carrinho de compra
   const [listShopping, setListShopping] = useState([
     {
@@ -50,7 +45,16 @@ export default function Container() {
   return (
     <>
       <myContext.Provider
-        value={{ log, setLog, cad, setCad, listShopping, setListShopping,session,setSession }}
+        value={{
+          log,
+          setLog,
+          cad,
+          setCad,
+          listShopping,
+          setListShopping,
+          session,
+          setSession,
+        }}
       >
         <Global>
           <BrowserRouter>
@@ -60,7 +64,6 @@ export default function Container() {
               <Route path="/signup" element={<SignUp />} />
               <Route path="/shopping" element={<Shopping />} />
               <Route path="/checkout" element={<Checkout />} />
-              <Route path="/products" element={<ProductInfo />} />
             </Routes>
           </BrowserRouter>
         </Global>
