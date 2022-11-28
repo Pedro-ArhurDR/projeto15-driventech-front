@@ -1,8 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 export default function BottomShopping() {
+ const navigate = useNavigate()
   return (
     <Container>
-      <button>Comprar</button>
+      <button onClick={()=>navigate('/checkout')}>Comprar</button>
     </Container>
   );
 }
