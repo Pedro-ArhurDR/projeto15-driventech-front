@@ -6,6 +6,7 @@ import { Route, Routes, BrowserRouter } from "react-router-dom";
 import styled from "styled-components";
 import { useState } from "react";
 import Shopping from "../Shopping/Shopping";
+import Checkout from "../Checkout/Checkout"
 export default function Container() {
   //State para mandar no post de login
   const [log, setLog] = useState({
@@ -51,6 +52,7 @@ export default function Container() {
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/shopping" element={<Shopping />} />
+              <Route path="/checkout" element={<Checkout />} />
             </Routes>
           </BrowserRouter>
         </Global>
