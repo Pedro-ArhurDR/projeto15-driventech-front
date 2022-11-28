@@ -14,7 +14,7 @@ export default function AddProducts() {
                 Authorization: `Bearer ${log.Bearer}`
             }
         }
-        const promise = axios.post(`http://localhost:5000/products`,addProd,config)
+        const promise = axios.post(`https://projeto14-mywallet-back-v3.onrender.com/products`,addProd,config)
         promise.then(res =>alert('produto adicionado a tela principal') &navigate('/')
         )
         promise.catch(erro => {

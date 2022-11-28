@@ -57,7 +57,7 @@ export default function LoadProducts() {
   ];
 
   useEffect(() => {
-    const promise = axios.get(`http://localhost:5000/products`);
+    const promise = axios.get(`https://projeto14-mywallet-back-v3.onrender.com/products`);
     promise.then((res) => console.log(res) & setAllProd(res.data));
     promise.catch((erro) => {
       console.log(erro);

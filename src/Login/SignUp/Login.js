@@ -12,7 +12,7 @@ export default function Login() {
     //atualiza o state de log no container e vai pra pagina principal
     function login(event){
         event.preventDefault()
-        const promise = axios.post("http://localhost:5000/login", log)
+        const promise = axios.post("https://projeto14-mywallet-back-v3.onrender.com/login", log)
         promise.then((res) => res.data.token & console.log(res.data) &
             console.log('LOGADO') & setLog(e2 => ({ ...e2, Bearer: res.data.token })) & navigate('/')& setSession(true))
         promise.catch((err) => alert('Senha e/ou email incorreto(s)'))
@@ -24,7 +24,7 @@ export default function Login() {
                 Authorization: `Bearer ${log.Bearer}`
             }
         }
-        const promise = axios.delete(`http://localhost:5000/login`, config)
+        const promise = axios.delete(`https://projeto14-mywallet-back-v3.onrender.com/login`, config)
         promise.then(res => console.log(res)& setSession(false)
         )
         promise.catch(erro => {

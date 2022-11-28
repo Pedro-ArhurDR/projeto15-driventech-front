@@ -13,7 +13,7 @@ export default function ListItens() {
         Authorization: `Bearer ${log.Bearer}`,
       },
     };
-    const promise = axios.get(`http://localhost:5000/shopping`, config);
+    const promise = axios.get(`https://projeto14-mywallet-back-v3.onrender.com/shopping`, config);
     promise.then((res) => console.log("deu certo"));
     promise.catch((erro) => {
       console.log(erro);

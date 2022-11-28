@@ -14,7 +14,7 @@ export default function SignUp() {
             alert('As senha não coincidem')
         }
         else{
-            const promise = axios.post("http://localhost:5000/sign-up", cad)
+            const promise = axios.post("https://projeto14-mywallet-back-v3.onrender.com/sign-up", cad)
             promise.then((res) => console.log(res.data) &
                 console.log('CADASTRADO') & navigate('/login'))
                 promise.catch((err) =>alert(err.response.data))

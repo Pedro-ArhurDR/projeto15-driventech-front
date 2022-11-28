@@ -25,7 +25,7 @@ export default function FormInfoUser() {
       listShopping,
     ];
 
-    const promise = axios.post("http://localhost:5000/checkout", dados);
+    const promise = axios.post("https://projeto14-mywallet-back-v3.onrender.com/checkout", dados);
     promise.then((e) => console.log({ dados }) & navigate("/"));
     promise.catch((err) => console.log(err));
   }
