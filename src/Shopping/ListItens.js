@@ -1,39 +1,42 @@
 import styled from "styled-components";
 import { useContext } from "react";
 import MyContext from "../contexts/myContext";
-import axios from 'axios'
+import axios from "axios";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 export default function ListItens() {
-  const { listShopping,log,setListShopping } = useContext(MyContext);
-  const navigate = useNavigate()
+  const { listShopping, log, setListShopping } = useContext(MyContext);
+  const navigate = useNavigate();
   useEffect(() => {
     const config = {
-        headers: {
-            Authorization: `Bearer ${log.Bearer}`
-        }
-    }
-    const promise = axios.get(`http://localhost:5000/shopping`, config)
-    promise.then(res => setListShopping(res.data)
-    )
-    promise.catch(erro => {
-        console.log(erro)
-    })
-
-}, [])
+      headers: {
+        Authorization: `Bearer ${log.Bearer}`,
+      },
+    };
+    const promise = axios.get(`http://localhost:5000/shopping`, config);
+    promise.then((res) => console.log("deu certo"));
+    promise.catch((erro) => {
+      console.log(erro);
+    });
+  }, []);
+  console.log(listShopping);
   return (
     <Container>
-      { listShopping.length===0?<h1>Seu carrinho está vazio :c</h1> :listShopping.map((product, index) => {
-        return (
-          <Item key={index}>
-            <img src={product.url_imagem} alt="imagem item" />
-            <div>
-              <span>{product.nome}</span>
-              <p>R$ {product.valor}</p>
-            </div>
-          </Item>
-        );
-      })}
+      {listShopping.length === 0 ? (
+        <h1>Seu carrinho está vazio :c</h1>
+      ) : (
+        listShopping.map((product, index) => {
+          return (
+            <Item key={index}>
+              <img src={product.url_imagem} alt="imagem item" />
+              <div>
+                <span>{product.nome}</span>
+                <p>R$ {product.valor}</p>
+              </div>
+            </Item>
+          );
+        })
+      )}
     </Container>
   );
 }

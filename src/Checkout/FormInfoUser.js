@@ -9,21 +9,25 @@ export default function FormInfoUser() {
   const [city, setCity] = useState("");
   const [address, setAddress] = useState("");
   const [contact, setContact] = useState("");
-  const {listShopping} = useContext(MyContext)
-  const navigate = useNavigate()
+  const { listShopping } = useContext(MyContext);
+  const navigate = useNavigate();
   function sendRequest(e) {
     e.preventDefault();
     console.log(cep, state, city, address, contact);
-    const dados = [{
-      cep:cep,
-      state:state,
-      city:city,
-      adress:address,
-      contact:contact
-    },listShopping]
-    const promise = axios.post('http://localhost:5000/checkout',dados)
-    promise.then( e => alert('Compra realizada')&navigate('/') )
-    promise.catch(err => console.log(err))
+    const dados = [
+      {
+        cep: cep,
+        state: state,
+        city: city,
+        adress: address,
+        contact: contact,
+      },
+      listShopping,
+    ];
+
+    const promise = axios.post("http://localhost:5000/checkout", dados);
+    promise.then((e) => console.log({ dados }) & navigate("/"));
+    promise.catch((err) => console.log(err));
   }
 
   return (

@@ -1,9 +1,10 @@
 import styled from "styled-components";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
+import MyContext from "../contexts/myContext";
 export default function LoadProducts() {
   const [allProd, setAllProd] = useState([]);
-
+  const { listShopping, setListShopping } = useContext(MyContext);
   const produtos = [
     {
       nome: "Placa de RTX 100000",
@@ -63,10 +64,15 @@ export default function LoadProducts() {
     });
   }, []);
 
+  function mandarItens(product) {
+    const newProduct = [...listShopping, product];
+    setListShopping(newProduct);
+  }
+
   return (
     <Container heigthC={produtos.length}>
       {allProd.map((e, i) => (
-        <Product key={i}>
+        <Product key={i} onClick={() => mandarItens(e)}>
           <img src={e.url_imagem} alt="imagem item" /> <h2>{e.nome}</h2>{" "}
           <span>R$ {e.valor}</span>
         </Product>

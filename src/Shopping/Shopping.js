@@ -8,9 +8,8 @@ export default function Shopping() {
   const { listShopping } = useContext(MyContext);
   let total = 0;
   for (let i = 0; i < listShopping.length; i++) {
-    total += listShopping[i].valor;
+    total += Number(listShopping[i].valor);
   }
-  console.log(total);
   return (
     <Container>
       <TopShopping />
