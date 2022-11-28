@@ -1,11 +1,18 @@
 import styled from "styled-components"
 import Bottom from "./Bottom"
 import LoadProducts from "./LoadProducts"
+import { useContext } from "react"
+import MyContext from "../contexts/myContext"
+import { AddCircleOutline } from 'react-ionicons'
+import { useNavigate } from "react-router-dom"
 export default function Products() {
+    const navigate = useNavigate()
+    const { log } = useContext(MyContext)
+    console.log(log.email)
     return (
         <Container>
             <Container2>
-            <h1>DrivenTech</h1>
+            <h1>DrivenTech</h1><div>{log.email==="admin@hotmail.com"?<AddCircleOutline onClick={()=>navigate('/addproducts')} color={'#00000'} height="25px"width="25px"/>:null}</div>
             <LoadProducts/>
             </Container2>
             <Bottom />

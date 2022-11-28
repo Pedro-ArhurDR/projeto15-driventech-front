@@ -3,9 +3,10 @@ import { useContext } from "react";
 import MyContext from "../contexts/myContext";
 import axios from 'axios'
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 export default function ListItens() {
   const { listShopping,log,setListShopping } = useContext(MyContext);
-
+  const navigate = useNavigate()
   useEffect(() => {
     const config = {
         headers: {
@@ -22,7 +23,7 @@ export default function ListItens() {
 }, [])
   return (
     <Container>
-      {listShopping.map((product, index) => {
+      { listShopping.length===0?<h1>Seu carrinho está vazio :c</h1> :listShopping.map((product, index) => {
         return (
           <Item key={index}>
             <img src={product.url_imagem} alt="imagem item" />
