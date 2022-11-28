@@ -50,7 +50,7 @@ export default function Container() {
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/shopping" element={<Shopping />} />
-              <Route path="/shopping" element={<Checkout />} />
+              <Route path="/checkout" element={<Checkout />} />
             </Routes>
           </BrowserRouter>
         </Global>
