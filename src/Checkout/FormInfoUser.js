@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import MyContext from "../contexts/myContext";
+import axios from "axios";
 export default function FormInfoUser() {
   const [cep, setCep] = useState("");
   const [state, setState] = useState("");
@@ -26,9 +27,8 @@ export default function FormInfoUser() {
   }
 
   return (
-    <Container>
+    <Container onSubmit={sendRequest}>
       <h2>Informações de Entrega</h2>
-      <form onSubmit={sendRequest}>
       <input
         placeholder="CEP"
         pattern="[0-9]{5}-[0-9]{3}"
@@ -63,7 +63,6 @@ export default function FormInfoUser() {
         required
       />
       <button type="submit">Realizar Pedido</button>
-      </form>
     </Container>
   );
 }
