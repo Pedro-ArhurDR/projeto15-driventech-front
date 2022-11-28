@@ -7,6 +7,7 @@ import styled from "styled-components";
 import { useState } from "react";
 import Shopping from "../Shopping/Shopping";
 import Checkout from "../Checkout/Checkout";
+import ProductInfo from "../Product-Info/ProductInfo";
 export default function Container() {
   //State para mandar no post de login
   const [log, setLog] = useState({
@@ -25,12 +26,14 @@ export default function Container() {
   //State para salvar os produtos no carrinho de compra
   const [listShopping, setListShopping] = useState([
     {
+      id: 1,
       nome: "Placa de RTX 100000",
       valor: 1000.0,
       url_imagem:
         "https://cdn.dooca.store/107/products/i4nzapixzcdjfv7y3x050ov6ojcffqjnlrls_640x640+fill_ffffff.png?v=1645474553&webp=0",
     },
     {
+      id: 2,
       nome: "Placa cara",
       valor: 890.0,
       url_imagem:
@@ -51,6 +54,7 @@ export default function Container() {
               <Route path="/signup" element={<SignUp />} />
               <Route path="/shopping" element={<Shopping />} />
               <Route path="/checkout" element={<Checkout />} />
+              <Route path="/products" element={<ProductInfo />} />
             </Routes>
           </BrowserRouter>
         </Global>
