@@ -6,7 +6,6 @@ import { Route, Routes, BrowserRouter } from "react-router-dom";
 import styled from "styled-components";
 import { useState } from "react";
 import Shopping from "../Shopping/Shopping";
-import Checkout from "../Checkout/Checkout";
 export default function Container() {
   //State para mandar no post de login
   const [log, setLog] = useState({
@@ -14,6 +13,7 @@ export default function Container() {
     senha: "",
     Bearer: "",
   });
+  console.log(log)
   //State para mandar no post de signup (senha2 é pra ser igual senha)
   const [cad, setCad] = useState({
     nome: "",
@@ -22,6 +22,7 @@ export default function Container() {
     senha: "",
     senha2: "",
   });
+  const [session,setSession] = useState(false)
   //State para salvar os produtos no carrinho de compra
   const [listShopping, setListShopping] = useState([
     {
@@ -41,7 +42,7 @@ export default function Container() {
   return (
     <>
       <myContext.Provider
-        value={{ log, setLog, cad, setCad, listShopping, setListShopping }}
+        value={{ log, setLog, cad, setCad, listShopping, setListShopping,session,setSession }}
       >
         <Global>
           <BrowserRouter>
@@ -50,7 +51,6 @@ export default function Container() {
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/shopping" element={<Shopping />} />
-              <Route path="/shopping" element={<Checkout />} />
             </Routes>
           </BrowserRouter>
         </Global>

@@ -1,8 +1,25 @@
 import styled from "styled-components";
 import { useContext } from "react";
 import MyContext from "../contexts/myContext";
+import axios from 'axios'
+import { useEffect } from "react";
 export default function ListItens() {
-  const { listShopping } = useContext(MyContext);
+  const { listShopping,log,setListShopping } = useContext(MyContext);
+
+  useEffect(() => {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${log.Bearer}`
+        }
+    }
+    const promise = axios.get(`http://localhost:5000/shopping`, config)
+    promise.then(res => setListShopping(res.data)
+    )
+    promise.catch(erro => {
+        console.log(erro)
+    })
+
+}, [])
   return (
     <Container>
       {listShopping.map((product, index) => {

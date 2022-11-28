@@ -1,12 +1,12 @@
 import styled from "styled-components"
 import Bottom from "./Bottom"
-
+import LoadProducts from "./LoadProducts"
 export default function Products() {
     return (
         <Container>
-            <input placeholder="O que você está procurando?" type=" text" />
             <Container2>
             <h1>DrivenTech</h1>
+            <LoadProducts/>
             </Container2>
             <Bottom />
         </Container>
@@ -17,7 +17,7 @@ export default function Products() {
 const Container = styled.div`
     background-color: rgb(12, 27, 61);
     width:100%;
-    height:100vh;
+    height:90vh;
     display:flex;
    flex-direction:column;
 
@@ -54,7 +54,7 @@ const Container2 = styled.div`
           background-clip: text,padding-box;
   transition: 0.5s;
   font-size: 40px;
-  margin-top:20px;
+  margin-top:45px;
     }
     h1:hover {--_p: 100%}
 `
